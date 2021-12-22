@@ -1,9 +1,9 @@
-import Admin from "./component/Dashboard/Admin";
+import "./App.css";
 
 function App() {
   return (
     <div>
-      <Admin></Admin>
+      <h1> Hello Devware Anim! </h1>
     </div>
   );
 }
