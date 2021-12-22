@@ -1,5 +1,6 @@
-import * as React from "react";
-import PropTypes from "prop-types";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import MenuIcon from "@mui/icons-material/Menu";
+import { ListItem, ListItemIcon } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -8,12 +9,12 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
+import * as React from "react";
 import { useStyle } from "../Style/Style";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import { ListItem, ListItemIcon } from "@mui/material";
+import Search from "./Search";
 
 const drawerWidth = 270;
 function ResponsiveDrawer(props) {
@@ -82,7 +83,8 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div"></Typography>
+          {/* <Typography variant="h6" noWrap component="div">hi</Typography> */}
+          <Search></Search>
         </Toolbar>
         <Divider />
       </AppBar>
@@ -132,7 +134,6 @@ function ResponsiveDrawer(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-        <Toolbar />
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur
         </Typography>
