@@ -1,11 +1,9 @@
-import logo from "./logo.svg";
-import "./App.css";
+import Admin from "./component/Dashboard/Admin";
 
 function App() {
   return (
     <div>
-      <h1> Hello devWare </h1>
-      <h2> sagor miya </h2>
+      <Admin></Admin>
     </div>
   );
 }
