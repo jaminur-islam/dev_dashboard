@@ -54,7 +54,6 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          {/* <Typography variant="h6" noWrap component="div">hi</Typography> */}
           <Search></Search>
         </Toolbar>
         <Divider />
