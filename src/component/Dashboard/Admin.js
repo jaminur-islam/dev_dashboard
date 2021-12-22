@@ -6,19 +6,14 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useStyle } from "../Style/Style";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import { ListItem, ListItemIcon } from "@mui/material";
+import SidebarDrawer from "./SidebarDrawer";
 
-const drawerWidth = 270;
+const drawerWidth = 280;
 function ResponsiveDrawer(props) {
-  const classes = useStyle();
-
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -26,35 +21,7 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const drawer = (
-    // sidebar
-    <Box className={classes.box}>
-      <List>
-        <ListItem>
-          <ListItemIcon>
-            <DashboardIcon style={{ marginRight: "10px" }} /> Dashboard
-          </ListItemIcon>
-          <ListItemText />
-        </ListItem>
-        <ListItem>
-          <ListItemIcon>
-            <DashboardIcon /> sagor
-          </ListItemIcon>
-          <ListItemText />
-        </ListItem>
-      </List>
-
-      <List>
-        <ListItemIcon>
-          <ListItemText> sagor </ListItemText>
-        </ListItemIcon>
-      </List>
-      <List>sagor</List>
-      <List>sagor</List>
-      <List>sagor</List>
-      <List>sagor</List>
-    </Box>
-  );
+  const drawer = <SidebarDrawer></SidebarDrawer>;
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
