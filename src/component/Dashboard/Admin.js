@@ -51,6 +51,7 @@ function ResponsiveDrawer(props) {
           </IconButton>
           <Typography variant="h6" noWrap component="div"></Typography>
         </Toolbar>
+        {/* search box */}
         <Divider />
       </AppBar>
       <Box
