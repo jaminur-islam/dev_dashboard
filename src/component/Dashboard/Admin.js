@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { useStyle } from "../Style/Style";
+import { useStyle } from "../Style/sidebar_style";
 import SidebarDrawer from "./SidebarDrawer";
 
 const drawerWidth = 280;
@@ -51,7 +51,6 @@ function ResponsiveDrawer(props) {
           </IconButton>
           <Typography variant="h6" noWrap component="div"></Typography>
         </Toolbar>
-        {/* search box */}
         <Divider />
       </AppBar>
       <Box
