@@ -13,7 +13,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
-import { useStyle } from "../Style/Style";
 import SidebarDrawer from "./SidebarDrawer";
 import Search from "./Search";
 
