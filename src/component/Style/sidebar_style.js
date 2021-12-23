@@ -7,14 +7,6 @@ export const useStyle = makeStyles({
     height: "100%",
     padding: "15px 10px",
   },
-  header_select_tag: {
-    height: "20px",
-    border: "none",
-    backgroundColor: "#E5E7EA",
-    outline: "none",
-    color: "",
-  },
-
   admin_content: {
     display: "flex",
     alignItems: "center",
@@ -26,12 +18,21 @@ export const useStyle = makeStyles({
   },
   admin_details_text: {
     marginLeft: "20px",
+    "& span": {
+      fontWeight: "bold",
+    },
   },
 
   admin_img: {
     height: "50px",
     width: "50px",
     borderRadius: "50%",
+  },
+  header_select_tag: {
+    height: "20px",
+    border: "none",
+    backgroundColor: "#E5E7EA",
+    outline: "none",
   },
   // admin end
 
@@ -50,8 +51,17 @@ export const useStyle = makeStyles({
     },
   },
 
-  // Before
-  sidebar_hover: {
+  // remove before style on accordion
+  accordion_item: {
+    boxShadow: "none",
+    outline: "none",
+    border: "none",
+    background: "#E5E7EA",
+    "& a": {
+      textDecoration: "none",
+      fontSize: "16px",
+      fontWeight: "bold",
+    },
     "&.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before": {
       display: "none",
     },
@@ -75,7 +85,7 @@ export const useStyle = makeStyles({
     },
   },
 
-  item_list: {
+  link_list: {
     display: "flex",
     flexDirection: "column",
     marginLeft: "20px",
