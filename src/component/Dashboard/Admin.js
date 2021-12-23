@@ -1,28 +1,16 @@
-import DashboardIcon from "@mui/icons-material/Dashboard";
 import MenuIcon from "@mui/icons-material/Menu";
-import { ListItem, ListItemIcon } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-<<<<<<< HEAD
-import MenuIcon from "@mui/icons-material/Menu";
-=======
-import List from "@mui/material/List";
-import ListItemText from "@mui/material/ListItemText";
->>>>>>> b31c552849eb51de8bdeb45ac3dcb3de93294167
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
-import { useStyle } from "../Style/Style";
-<<<<<<< HEAD
-import SidebarDrawer from "./SidebarDrawer";
-=======
 import Search from "./Search";
->>>>>>> b31c552849eb51de8bdeb45ac3dcb3de93294167
+import SidebarDrawer from "./SidebarDrawer";
 
 const drawerWidth = 280;
 function ResponsiveDrawer(props) {
