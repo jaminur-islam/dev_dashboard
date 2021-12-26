@@ -6,6 +6,7 @@ export const useStyle = makeStyles({
     background: "#E5E7EA",
     height: "100%",
     padding: "15px 10px",
+    overflowX: "hidden",
   },
   admin_content: {
     display: "flex",
@@ -20,6 +21,8 @@ export const useStyle = makeStyles({
     marginLeft: "20px",
     "& span": {
       fontWeight: "bold",
+      color: "#08243E",
+      fontSize: "18px",
     },
   },
 
@@ -52,14 +55,21 @@ export const useStyle = makeStyles({
   },
 
   // remove before style on accordion
+
   accordion_item: {
-    boxShadow: "none",
-    outline: "none",
-    border: "none",
-    background: "#E5E7EA",
+    boxShadow: "none !important",
+    outline: "none !important",
+    border: "none !important",
+    background: "#E5E7EA !important ",
+    "& div:hover": {
+      color: "#08243E",
+      "& span": {
+        color: "#08243E",
+      },
+    },
     "& a": {
       textDecoration: "none",
-      fontSize: "16px",
+      fontSize: "15px",
       fontWeight: "bold",
     },
     "&.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before": {
@@ -89,5 +99,24 @@ export const useStyle = makeStyles({
     display: "flex",
     flexDirection: "column",
     marginLeft: "20px",
+  },
+
+  // Storage usage style
+  storage_usage: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: "50px",
+    "& p": {
+      color: "#112D46",
+      fontWeight: "bold",
+      margin: "0",
+      marginBottom: "5px",
+    },
+    "& span": {
+      color: "#444444",
+      fontWeight: "bold",
+      marginBottom: "5px",
+    },
   },
 });

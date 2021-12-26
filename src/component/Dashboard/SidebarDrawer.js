@@ -11,13 +11,20 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  LinearProgress,
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box } from "@mui/system";
 import { useStyle } from "../Style/sidebar_style";
+import { Link } from "react-router-dom";
+import useFirebase from "../Hooks/useFirebase";
+import useAuth from "../Hooks/useAuth";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
 
 const SidebarDrawer = () => {
+  const { logout, user } = useAuth();
+  const { GoogleSingIn } = useFirebase();
   const classes = useStyle();
   return (
     <Box className={classes.box}>
@@ -26,12 +33,10 @@ const SidebarDrawer = () => {
         <div className={classes.admin_details}>
           <img className={classes.admin_img} src={img} alt="admin-img" />
           <div className={classes.admin_details_text}>
-            <span
-              sx={{ fontWeight: "bold", color: "#08243E", fontSize: "18px" }}
-            >
-              Body shop
-            </span>
-            <Typography>jaminur(admin) </Typography>
+            <span>Body shop</span>
+            <Typography>
+              {user?.displayName?.split(" ")[0] || "sagor"}(admin){" "}
+            </Typography>
           </div>
         </div>
         <select className={classes.header_select_tag}>
@@ -44,7 +49,6 @@ const SidebarDrawer = () => {
       {/* admin end */}
 
       {/* sidebar item start */}
-
       <div className={classes.sidebar_container}>
         <div className={classes.sidebar_item}>
           <Dashboard />
@@ -54,19 +58,36 @@ const SidebarDrawer = () => {
         </div>
         <div className={classes.sidebar_item}>
           <LocalGroceryStoreIcon />
-          <a className={classes.sidebar_link} href="#">
+          <Link to="/" className={classes.sidebar_link} href="#">
             Order
-          </a>
+          </Link>
+        </div>
+        <div className={classes.sidebar_item}>
+          <UploadFileIcon />
+          <Link
+            to="/dashboard/upload"
+            className={classes.sidebar_link}
+            href="#"
+          >
+            Upload products
+          </Link>
         </div>
         <div className={classes.sidebar_item}>
           <FolderIcon />
-          <a className={classes.sidebar_link} href="#">
+          <Link
+            to="/dashboard/catalog"
+            className={classes.sidebar_link}
+            href="#"
+          >
             Catalog
-          </a>
+          </Link>
         </div>
       </div>
       <div className={classes.accordion_content}>
-        <Accordion className={classes.accordion_item}>
+        <Accordion
+          className={classes.accordion_item}
+          // style={{ background: "red" }}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -134,6 +155,17 @@ const SidebarDrawer = () => {
             </div>
           </AccordionDetails>
         </Accordion>
+
+        {/* <BorderLinearProgress variant="determinate" value={50} /> */}
+
+        <button onClick={logout}> Logout </button>
+        <br />
+
+        <div className={classes.storage_usage}>
+          <p>Storage usage</p>
+          <span> 50% </span>
+        </div>
+        <LinearProgress color="success" variant="determinate" value={50} />
       </div>
       {/* sidebar item end */}
     </Box>

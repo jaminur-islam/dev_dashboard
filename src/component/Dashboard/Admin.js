@@ -9,8 +9,8 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { useStyle } from "../Style/sidebar_style";
 import SidebarDrawer from "./SidebarDrawer";
+import { Outlet } from "react-router-dom";
 
 const drawerWidth = 280;
 function ResponsiveDrawer(props) {
@@ -100,9 +100,9 @@ function ResponsiveDrawer(props) {
         }}
       >
         <Toolbar />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur
-        </Typography>
+        <Box>
+          <Outlet />
+        </Box>
       </Box>
     </Box>
   );
