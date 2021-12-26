@@ -18,13 +18,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box } from "@mui/system";
 import { useStyle } from "../Style/sidebar_style";
 import { Link } from "react-router-dom";
-import useFirebase from "../Hooks/useFirebase";
 import useAuth from "../Hooks/useAuth";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 
 const SidebarDrawer = () => {
   const { logout, user } = useAuth();
-  const { GoogleSingIn } = useFirebase();
   const classes = useStyle();
   return (
     <Box className={classes.box}>
@@ -155,9 +153,6 @@ const SidebarDrawer = () => {
             </div>
           </AccordionDetails>
         </Accordion>
-
-        {/* <BorderLinearProgress variant="determinate" value={50} /> */}
-
         <button onClick={logout}> Logout </button>
         <br />
 

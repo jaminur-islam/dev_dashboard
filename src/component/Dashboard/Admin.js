@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { Outlet } from "react-router-dom";
-import { useStyle } from "../Style/sidebar_style";
 import PrimarySearchAppBar from "./AdminAppBar";
 import SidebarDrawer from "./SidebarDrawer";
 import EnhancedTable from "./Table";
@@ -18,8 +17,6 @@ import TableHeading from "./TableHeading";
 
 const drawerWidth = 270;
 function ResponsiveDrawer(props) {
-  const classes = useStyle();
-
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -27,7 +24,7 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const drawer = <SidebarDrawer></SidebarDrawer>
+  const drawer = <SidebarDrawer></SidebarDrawer>;
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
@@ -106,11 +103,7 @@ function ResponsiveDrawer(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-        <Typography paragraph>
-          {/* Table Component  */}
-         <TableHeading></TableHeading>
-         <EnhancedTable></EnhancedTable>
-        </Typography>
+        <Typography paragraph>{/* Table Component  */}</Typography>
         <Toolbar />
         <Box>
           <Outlet />
