@@ -13,8 +13,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
-import SidebarDrawer from "./SidebarDrawer";
 import Search from "./Search";
+import SidebarDrawer from "./SidebarDrawer";
+import { Outlet } from "react-router-dom";
 
 const drawerWidth = 280;
 function ResponsiveDrawer(props) {
@@ -106,6 +107,10 @@ function ResponsiveDrawer(props) {
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur
         </Typography>
+        <Toolbar />
+        <Box>
+          <Outlet />
+        </Box>
       </Box>
     </Box>
   );
