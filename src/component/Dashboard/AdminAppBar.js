@@ -15,7 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import * as React from 'react';
-import { useStyles2 } from '../Style/Style2';
+import { AdminAppbarStyle } from '../Style/AdminAppbarStyle';
 
 const Search = styled('div')(({ theme }) => ({
     
@@ -58,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-    const classes = useStyles2();
+    const classes = AdminAppbarStyle();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -164,7 +164,7 @@ export default function PrimarySearchAppBar() {
         <Toolbar>
          
           
-          <Search>
+          <Search className={classes.searchBar}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>

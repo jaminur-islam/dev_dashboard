@@ -1,19 +1,27 @@
+import DashboardIcon from "@mui/icons-material/Dashboard";
 import MenuIcon from "@mui/icons-material/Menu";
+import { ListItem, ListItemIcon } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
-import Search from "./Search";
-import SidebarDrawer from "./SidebarDrawer";
+import { useStyle } from "../Style/sidebar_style";
+import PrimarySearchAppBar from "./AdminAppBar";
+import EnhancedTable from "./Table";
+import TableHeading from "./TableHeading";
 
-const drawerWidth = 280;
+const drawerWidth = 270;
 function ResponsiveDrawer(props) {
+  const classes = useStyle();
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -21,7 +29,35 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const drawer = <SidebarDrawer></SidebarDrawer>;
+  const drawer = (
+    // sidebar
+    <Box className={classes.box}>
+      <List>
+        <ListItem>
+          <ListItemIcon>
+            <DashboardIcon style={{ marginRight: "10px" }} /> Dashboard
+          </ListItemIcon>
+          <ListItemText />
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <DashboardIcon /> sagor
+          </ListItemIcon>
+          <ListItemText />
+        </ListItem>
+      </List>
+
+      <List>
+        <ListItemIcon>
+          <ListItemText> sagor </ListItemText>
+        </ListItemIcon>
+      </List>
+      <List>sagor</List>
+      <List>sagor</List>
+      <List>sagor</List>
+      <List>sagor</List>
+    </Box>
+  );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
@@ -49,7 +85,8 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Search></Search>
+          {/* App bar component */}
+          <PrimarySearchAppBar></PrimarySearchAppBar>
         </Toolbar>
         <Divider />
       </AppBar>
@@ -100,7 +137,9 @@ function ResponsiveDrawer(props) {
         }}
       >
         <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur
+          {/* Table Component  */}
+         <TableHeading></TableHeading>
+         <EnhancedTable></EnhancedTable>
         </Typography>
       </Box>
     </Box>
