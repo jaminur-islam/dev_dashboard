@@ -13,6 +13,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
+import { Outlet } from "react-router-dom";
 import { useStyle } from "../Style/sidebar_style";
 import PrimarySearchAppBar from "./AdminAppBar";
 import EnhancedTable from "./Table";
@@ -141,6 +142,10 @@ function ResponsiveDrawer(props) {
          <TableHeading></TableHeading>
          <EnhancedTable></EnhancedTable>
         </Typography>
+        <Toolbar />
+        <Box>
+          <Outlet />
+        </Box>
       </Box>
     </Box>
   );
