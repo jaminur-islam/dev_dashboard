@@ -1,6 +1,9 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles2 = makeStyles((theme) => ({
+export const AdminAppbarStyle = makeStyles((theme) => ({
+    searchBar:{
+        paddingLeft:"0px !important",
+    },
     abRoot: {
       backgroundColor: "#fff !important",
       boxShadow: "none !important",

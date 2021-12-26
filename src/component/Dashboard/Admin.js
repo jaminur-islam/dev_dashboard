@@ -14,7 +14,9 @@ import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { useStyle } from "../Style/Style";
-import Search from "./Search";
+import PrimarySearchAppBar from "./AdminAppBar";
+import EnhancedTable from "./Table";
+import TableHeading from "./TableHeading";
 
 const drawerWidth = 270;
 function ResponsiveDrawer(props) {
@@ -83,8 +85,8 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          {/* <Typography variant="h6" noWrap component="div">hi</Typography> */}
-          <Search></Search>
+          {/* App bar component */}
+          <PrimarySearchAppBar></PrimarySearchAppBar>
         </Toolbar>
         <Divider />
       </AppBar>
@@ -135,7 +137,9 @@ function ResponsiveDrawer(props) {
         }}
       >
         <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur
+          {/* Table Component  */}
+         <TableHeading></TableHeading>
+         <EnhancedTable></EnhancedTable>
         </Typography>
       </Box>
     </Box>
