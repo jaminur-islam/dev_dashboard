@@ -5,7 +5,7 @@ const Order = () => {
   const [data, setData] = useState([]);
   console.log(data);
   useEffect(() => {
-    fetch("http://localhost:5000/data")
+    fetch("http://localhost:5000/upload")
       .then((res) => res.json())
       .then((result) => {
         setData(result);

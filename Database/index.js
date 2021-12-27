@@ -20,11 +20,18 @@ const run = async () => {
   try {
     await client.connect();
     const database = client.db("devWear");
-    const productCollection = database.collection("products");
+    const uploadProductCollection = database.collection("upload_products");
 
     // get all products
-    app.get("/data", async (req, res) => {
-      const result = await productCollection.find({}).toArray();
+    app.get("/upload", async (req, res) => {
+      const result = await uploadProductCollection.find({}).toArray();
+      res.send(result);
+    });
+
+    // upload products
+    app.post("/upload", async (req, res) => {
+      const uploadedData = req.body;
+      const result = await uploadProductCollection.insertOne(uploadedData);
       res.send(result);
     });
   } finally {

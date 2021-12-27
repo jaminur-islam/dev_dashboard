@@ -1,64 +1,63 @@
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import LaunchIcon from '@mui/icons-material/Launch';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
-import SearchIcon from '@mui/icons-material/Search';
-import { Typography } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Badge from '@mui/material/Badge';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { styled } from '@mui/material/styles';
-import Toolbar from '@mui/material/Toolbar';
-import * as React from 'react';
-import { AdminAppbarStyle } from '../Style/AdminAppbarStyle';
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import LaunchIcon from "@mui/icons-material/Launch";
+import MoreIcon from "@mui/icons-material/MoreVert";
+import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import SearchIcon from "@mui/icons-material/Search";
+import { Typography } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Badge from "@mui/material/Badge";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import InputBase from "@mui/material/InputBase";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { styled } from "@mui/material/styles";
+import Toolbar from "@mui/material/Toolbar";
+import * as React from "react";
+import { AdminAppbarStyle } from "../Style/AdminAppbarStyle";
 
-const Search = styled('div')(({ theme }) => ({
-    
-  position: 'relative',
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor:"#fff",
-  color:"#3B3B3B",
+  backgroundColor: "#fff",
+  color: "#3B3B3B",
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
+  width: "100%",
+  [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
-    width: 'auto',
+    width: "auto",
   },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
+const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
+  color: "inherit",
+  "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    color: '#3B3B3B',
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
+    transition: theme.transitions.create("width"),
+    color: "#3B3B3B",
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
     },
   },
 }));
 
 export default function PrimarySearchAppBar() {
-    const classes = AdminAppbarStyle();
+  const classes = AdminAppbarStyle();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -82,19 +81,19 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
@@ -104,29 +103,30 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
-     
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-            <Typography variant="body2"  className={classes.viewShop}>View your shop</Typography>
-            <LaunchIcon className={classes.viewShopIcon}></LaunchIcon>
-            </IconButton>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+          <Typography variant="body2" className={classes.viewShop}>
+            View your shop
+          </Typography>
+          <LaunchIcon className={classes.viewShopIcon}></LaunchIcon>
+        </IconButton>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -156,28 +156,29 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box   sx={{ flexGrow: 1 }}>
-      <AppBar 
-      position="static"
-      className={classes.abRoot}
-      >
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" className={classes.abRoot}>
         <Toolbar>
-         
-          
           <Search className={classes.searchBar}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ "aria-label": "search" }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-            <Typography variant="body2"  className={classes.viewShop}>View your shop</Typography>
-            <LaunchIcon className={classes.viewShopIcon}></LaunchIcon>
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
+              <Typography variant="body2" className={classes.viewShop}>
+                View your shop
+              </Typography>
+              <LaunchIcon className={classes.viewShopIcon}></LaunchIcon>
             </IconButton>
             <IconButton
               size="large"
@@ -187,7 +188,6 @@ export default function PrimarySearchAppBar() {
               <Badge color="error">
                 <NotificationsNoneOutlinedIcon />
               </Badge>
-             
             </IconButton>
             <IconButton
               size="large"
@@ -199,11 +199,13 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <AccountCircle />
-              <Typography variant="body2" className={classes.profile}>Dawid Jankwoski </Typography>
-              <KeyboardArrowDownIcon/>
+              <Typography variant="body2" className={classes.profile}>
+                Dawid Jankwoski{" "}
+              </Typography>
+              <KeyboardArrowDownIcon />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="show more"

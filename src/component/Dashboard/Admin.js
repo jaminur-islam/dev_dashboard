@@ -103,8 +103,6 @@ function ResponsiveDrawer(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-        <Typography paragraph>{/* Table Component  */}</Typography>
-        <Toolbar />
         <Box>
           <Outlet />
         </Box>
