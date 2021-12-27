@@ -3,7 +3,20 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useStyle } from "./upload.style";
+import { makeStyles } from "@material-ui/core";
+const useStyle = makeStyles({
+  // upload form style
+  upload_form: {
+    width: "50%",
+    marginTop: "30px",
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "15px",
+    "& input": {
+      padding: "10px",
+    },
+  },
+});
 
 const ProductsUpload = () => {
   const classes = useStyle();
@@ -44,19 +57,7 @@ const ProductsUpload = () => {
     }
   }, [imgUrl]);
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      style={{
-        width: "50%",
-        marginTop: "20px",
-        display: "flex",
-        flexDirection: "column",
-        rowGap: "15px",
-        "& input": {
-          padding: "10px",
-        },
-      }}
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className={classes.upload_form}>
       <h1>Upload product</h1>
       <input
         type="text"

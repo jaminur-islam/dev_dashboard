@@ -6,14 +6,11 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { Outlet } from "react-router-dom";
 import PrimarySearchAppBar from "./AdminAppBar";
 import SidebarDrawer from "./SidebarDrawer";
-import EnhancedTable from "./Table";
-import TableHeading from "./TableHeading";
 
 const drawerWidth = 270;
 function ResponsiveDrawer(props) {

@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthContext from "./component/context/AuthContext";
-import Admin from "./component/Dashboard/Admin";
-import EnhancedTable from "./component/Dashboard/Table";
-import TableHeading from "./component/Dashboard/TableHeading";
 import Login from "./component/Login/Login/Login";
 import Register from "./component/Login/Register/Register";
 import PrivetRoute from "./component/PrivetRoute/PrivetRoute";
-import ProductsUpload from "./component/ProductsUpload/ProductsUpload";
-import Catalog from "./component/TextDashborad/Catalog/Catalog";
+import AdminDashboard from "./component/Dashboard/Dashboard/AdminDashboard";
+import TableHeading from "./component/Dashboard/OrderTable/TableHeading";
+import EnhancedTable from "./component/Dashboard/OrderTable/Table";
+import ProductsUpload from "./component/Dashboard/ProductsUpload/ProductsUpload";
+import Catalog from "./component/Dashboard/Catalog/Catalog";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
             path="/"
             element={
               <PrivetRoute>
-                <Admin></Admin>
+                <AdminDashboard></AdminDashboard>
               </PrivetRoute>
             }
           >
@@ -26,7 +26,6 @@ function App() {
               path="/"
               element={
                 <>
-                  {" "}
                   <TableHeading></TableHeading>
                   <EnhancedTable></EnhancedTable>
                 </>
