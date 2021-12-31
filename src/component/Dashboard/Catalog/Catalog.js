@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Catalog = () => {
+  const [data, setData] = useState([]);
+  console.log(data);
+  useEffect(() => {
+    fetch("https://aqueous-falls-80276.herokuapp.com/products")
+      .then((res) => res.json())
+      .then((result) => {
+        setData(result);
+      });
+  }, []);
   return (
-    <div>
-      <h1> this is catalog </h1>
+    <div style={{ marginTop: "50px" }}>
+      <div>
+        {data.map((dat) => {
+          return <h1> {dat.description} </h1>;
+        })}
+      </div>
     </div>
   );
 };

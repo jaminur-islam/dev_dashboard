@@ -157,12 +157,12 @@ const SidebarDrawer = () => {
             </Typography>
           </div>
         </div>
-        <select className={classes.header_select_tag}>
+        {/*        <select className={classes.header_select_tag}>
           <option disabled selected></option>
           <option>Option 1</option>
           <option>Option 2</option>
           <option>Option 3</option>
-        </select>
+        </select> */}
       </div>
       {/* admin end */}
 
@@ -188,6 +188,16 @@ const SidebarDrawer = () => {
             href="#"
           >
             Upload products
+          </Link>
+        </div>
+        <div className={classes.sidebar_item}>
+          <UploadFileIcon />
+          <Link
+            to="/dashboard/productManage"
+            className={classes.sidebar_link}
+            href="#"
+          >
+            Product manage
           </Link>
         </div>
         <div className={classes.sidebar_item}>

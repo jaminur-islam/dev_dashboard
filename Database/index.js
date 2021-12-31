@@ -21,15 +21,56 @@ const run = async () => {
     await client.connect();
     const database = client.db("devWear");
     const uploadProductCollection = database.collection("upload_products");
+    const productCollection = database.collection("products2");
 
     // get all products
-    app.get("/upload", async (req, res) => {
+    app.get("/products", async (req, res) => {
       const result = await uploadProductCollection.find({}).toArray();
+      res.send(result);
+    });
+    // get all products TWO
+    app.get("/products2", async (req, res) => {
+      const result = await productCollection.find({}).toArray();
+      res.send(result);
+    });
+
+    // get single product
+    app.get("/products2/:id", async (req, res) => {
+      const id = req.params.id;
+      const product = await productCollection.findOne({ _id: id });
+      res.send(product);
+    });
+
+    // update single product
+    app.put("/products2/:id", async (req, res) => {
+      const id = req.params.id;
+      const updateData = req.body;
+      const filter = await productCollection.findOne({ _id: id });
+
+      const updateDoc = {
+        $set: {
+          name: updateData.name,
+          price: updateData.price,
+          slug: updateData.slug,
+          availability: updateData.availability,
+          description: updateData.description,
+        },
+      };
+
+      const result = await productCollection.updateOne(filter, updateDoc);
+      res.send(result);
+    });
+
+    // Delete single product
+    app.delete("/products2/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: id };
+      const result = await productCollection.deleteOne(filter);
       res.send(result);
     });
 
     // upload products
-    app.post("/upload", async (req, res) => {
+    app.post("/addProduct", async (req, res) => {
       const uploadedData = req.body;
       const result = await uploadProductCollection.insertOne(uploadedData);
       res.send(result);

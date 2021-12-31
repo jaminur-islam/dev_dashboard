@@ -8,6 +8,8 @@ import TableHeading from "./component/Dashboard/OrderTable/TableHeading";
 import EnhancedTable from "./component/Dashboard/OrderTable/Table";
 import ProductsUpload from "./component/Dashboard/ProductsUpload/ProductsUpload";
 import Catalog from "./component/Dashboard/Catalog/Catalog";
+import ManageProducts from "./component/Dashboard/ManageProducts/ManageProducts";
+import UpdateProduct from "./component/Dashboard/UpdateProduct/UpdateProduct";
 
 function App() {
   return (
@@ -32,6 +34,15 @@ function App() {
               }
             />
             <Route path="/dashboard/catalog" element={<Catalog />} />
+
+            <Route
+              path="/dashboard/productManage"
+              element={<ManageProducts />}
+            />
+            <Route
+              path="/dashboard/productManage/:id"
+              element={<UpdateProduct />}
+            />
             <Route path="/dashboard/upload" element={<ProductsUpload />} />
           </Route>
           <Route path="/login" element={<Login />} />
