@@ -22,6 +22,7 @@ const run = async () => {
     const database = client.db("devWear");
     const uploadProductCollection = database.collection("upload_products");
     const productCollection = database.collection("products2");
+    const cartCollection = database.collection("cart"); // cart collection created by Alif
 
     // get all products
     app.get("/products", async (req, res) => {
@@ -73,6 +74,30 @@ const run = async () => {
     app.post("/addProduct", async (req, res) => {
       const uploadedData = req.body;
       const result = await uploadProductCollection.insertOne(uploadedData);
+      res.send(result);
+    });
+
+    /* -------------------------------------------------------------------------- */
+    /*                                    CART                                    */
+    /* -------------------------------------------------------------------------- */
+    // get all products from cart
+    app.get("/cart", async (req, res) => {
+      const result = await cartCollection.find({}).toArray();
+      res.send(result);
+    });
+
+    //post a product to cart
+    app.post("/postProductToCart", async (req, res) => {
+      const product = req.body;
+      const result = await cartCollection.insertOne(product);
+      res.send(result);
+    });
+
+    //delete a product from cart
+    app.delete("/cart/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: id };
+      const result = await cart.deleteOne(filter);
       res.send(result);
     });
   } finally {
