@@ -3,15 +3,11 @@ import React, { useEffect, useState } from "react";
 const Catalog = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    let isMounted = true;
     fetch("https://aqueous-falls-80276.herokuapp.com/products")
       .then((res) => res.json())
       .then((result) => {
         setData(result);
       });
-    return () => {
-      isMounted = false;
-    };
   }, []);
   return (
     <div style={{ marginTop: "50px" }}>

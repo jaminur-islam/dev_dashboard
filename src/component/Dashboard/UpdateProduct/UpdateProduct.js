@@ -8,18 +8,12 @@ const UpdateProduct = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
   useEffect(() => {
-    let isMounted = true;
-
     axios
       .get(`https://aqueous-falls-80276.herokuapp.com/products2/${id}`)
       .then((result) => {
         setProduct(result.data);
         reset({ name, price, description, availability });
       });
-
-    return () => {
-      isMounted = false;
-    };
   }, []);
 
   // generate slug
