@@ -10,6 +10,8 @@ import ProductsUpload from "./component/Dashboard/ProductsUpload/ProductsUpload"
 import Catalog from "./component/Dashboard/Catalog/Catalog";
 import ManageProducts from "./component/Dashboard/ManageProducts/ManageProducts";
 import UpdateProduct from "./component/Dashboard/UpdateProduct/UpdateProduct";
+import Administration from "./component/Administration/Administration";
+import AdminRoute from "./component/AdminRoute/AdminRoute";
 
 function App() {
   return (
@@ -19,9 +21,11 @@ function App() {
           <Route
             path="/"
             element={
-              <PrivetRoute>
-                <AdminDashboard></AdminDashboard>
-              </PrivetRoute>
+              <AdminRoute>
+                <PrivetRoute>
+                  <AdminDashboard></AdminDashboard>
+                </PrivetRoute>
+              </AdminRoute>
             }
           >
             <Route
@@ -44,6 +48,10 @@ function App() {
               element={<UpdateProduct />}
             />
             <Route path="/dashboard/upload" element={<ProductsUpload />} />
+            <Route
+              path="/dashboard/administration"
+              element={<Administration />}
+            />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

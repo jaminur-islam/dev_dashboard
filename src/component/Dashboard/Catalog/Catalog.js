@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 const Catalog = () => {
   const [data, setData] = useState([]);
-  console.log(data);
   useEffect(() => {
     fetch("https://aqueous-falls-80276.herokuapp.com/products")
       .then((res) => res.json())
@@ -14,7 +13,7 @@ const Catalog = () => {
     <div style={{ marginTop: "50px" }}>
       <div>
         {data.map((dat) => {
-          return <h1> {dat.description} </h1>;
+          return <h1 key={dat._id}> {dat.description} </h1>;
         })}
       </div>
     </div>

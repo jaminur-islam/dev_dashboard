@@ -201,6 +201,16 @@ const SidebarDrawer = () => {
           </Link>
         </div>
         <div className={classes.sidebar_item}>
+          <UploadFileIcon />
+          <Link
+            to="/dashboard/administration"
+            className={classes.sidebar_link}
+            href="#"
+          >
+            Administration management
+          </Link>
+        </div>
+        <div className={classes.sidebar_item}>
           <FolderIcon />
           <Link
             to="/dashboard/catalog"

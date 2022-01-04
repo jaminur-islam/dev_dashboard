@@ -20,7 +20,7 @@ const useStyle = makeStyles({
 
 const ProductsUpload = () => {
   const classes = useStyle();
-  const [imgUrl, setImgUrl] = useState("");
+  const [img, setImgUrl] = useState("");
   const [formData, setFormData] = useState({});
 
   // generate slug
@@ -41,7 +41,6 @@ const ProductsUpload = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (formData) => {
-    console.log(formData);
     setFormData(formData);
     uploadImgOnImgBb(formData.imgFile[0]);
   };
@@ -54,15 +53,13 @@ const ProductsUpload = () => {
     const url = "https://api.imgbb.com/1/upload";
     axios.post(`${url} `, uploadForm).then((result) => {
       setImgUrl(result?.data?.data?.display_url);
-      console.log(result.data);
     });
   };
   useEffect(() => {
-    if (imgUrl) {
+    if (img) {
       delete formData.imgFile;
       delete formData.InputSlug;
-      const newFormData = { slug, ...formData, imgUrl };
-      console.log(newFormData);
+      const newFormData = { slug, ...formData, img };
       setSlug("");
       reset();
 
@@ -78,7 +75,7 @@ const ProductsUpload = () => {
           }
         });
     }
-  }, [imgUrl]);
+  }, [img]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.upload_form}>

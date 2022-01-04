@@ -25,6 +25,8 @@ import { visuallyHidden } from "@mui/utils";
 import PropTypes from "prop-types";
 import * as React from "react";
 import { makeStyles } from "@material-ui/core";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const TableStyle = makeStyles((theme) => ({
   order_count: {
@@ -229,7 +231,6 @@ function EnhancedTableHead(props) {
             }}
           />
         </TableCell>
-
         {headCells.map((headCell) => (
           <TableCell
             className={classes.table_cell_map}
@@ -344,6 +345,15 @@ export default function EnhancedTable() {
   const classes = TableStyle();
   const [tableData, setTableData] = React.useState([]);
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleOneClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   React.useEffect(() => {
     fetch("https://animfahad32.github.io/fakeData/FakeClothingData.json")
       .then((resp) => resp.json())
@@ -432,8 +442,7 @@ export default function EnhancedTable() {
               rowCount={tableData.length}
             />
             <TableBody>
-              {/* if you don't need to support IE11, you can replace the `stableSort` call with:
-   rows.slice().sort(getComparator(order, orderBy)) */}
+              {/* if you don't need to support IE11, you can replace the `stableSort` call with: rows.slice().sort(getComparator(order, orderBy)) */}
               {stableSort(tableData, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
@@ -472,10 +481,108 @@ export default function EnhancedTable() {
                       <TableCell align="right">{row.NewClient}</TableCell>
                       <TableCell align="right">{row.Price}</TableCell>
                       <TableCell align="right">{row.Payment}</TableCell>
-                      <TableCell align="right">{row.Status}</TableCell>
                       <TableCell align="right">
-                        {" "}
-                        <MoreVertIcon></MoreVertIcon>{" "}
+                        {/*======== Oder Status ========================= 
+                        -------------------------------------------------
+                        =============================================== */}
+                        {row.Status == "Processing " && (
+                          <button
+                            style={{
+                              background: "#f4b507",
+                              borderRadius: "3px",
+                              fontSize: " 11px",
+                              color: "white",
+                              border: "none",
+                              padding: "5px",
+                            }}
+                          >
+                            Processing
+                          </button>
+                        )}
+
+                        {row.Status == "Paid " && (
+                          <button
+                            style={{
+                              background: "green",
+                              borderRadius: "3px",
+                              fontSize: " 11px",
+                              color: "white",
+                              border: "none",
+                              padding: "5px",
+                            }}
+                          >
+                            Paid
+                          </button>
+                        )}
+                        {row.Status == "Paid" && (
+                          <button
+                            style={{
+                              background: "green",
+                              borderRadius: "3px",
+                              fontSize: " 11px",
+                              color: "white",
+                              border: "none",
+                              padding: "5px",
+                            }}
+                          >
+                            Paid
+                          </button>
+                        )}
+
+                        {row.Status == "Unpaid" && (
+                          <button
+                            style={{
+                              background: "red",
+                              borderRadius: "3px",
+                              fontSize: " 11px",
+                              color: "white",
+                              border: "none",
+                              padding: "5px",
+                            }}
+                          >
+                            Unpaid
+                          </button>
+                        )}
+                      </TableCell>
+                      <TableCell align="right">
+                        {/* ====================    ====================    */}
+                        {/* ====================    ====================    */}
+                        {/* ====================    ====================    */}
+                        {/* Order Status change  */}
+                        <div>
+                          <MoreVertIcon
+                            id="demo-positioned-button"
+                            aria-controls={
+                              open ? "demo-positioned-menu" : undefined
+                            }
+                            aria-haspopup="true"
+                            aria-expanded={open ? "true" : undefined}
+                            onClick={handleOneClick}
+                          >
+                            Dashboard
+                          </MoreVertIcon>
+                          <Menu
+                            id="demo-positioned-menu"
+                            aria-labelledby="demo-positioned-button"
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                              vertical: "top",
+                              horizontal: "left",
+                            }}
+                            transformOrigin={{
+                              vertical: "top",
+                              horizontal: "left",
+                            }}
+                          >
+                            <MenuItem onClick={handleClose}>Accept</MenuItem>
+                            <MenuItem onClick={handleClose}>Delete</MenuItem>
+                            <MenuItem onClick={handleClose}>
+                              Processing
+                            </MenuItem>
+                          </Menu>
+                        </div>
                       </TableCell>
                     </TableRow>
                   );

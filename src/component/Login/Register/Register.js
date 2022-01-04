@@ -10,10 +10,9 @@ const Register = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    reset();
-    const { email, password } = data;
-    console.log(email, password);
-    createUser(email, password, navigate);
+    // reset();
+    const { name, email, password } = data;
+    createUser(name, email, password, navigate);
   };
 
   return (
@@ -29,7 +28,7 @@ const Register = () => {
           <input
             type="text"
             placeholder="Your Name*"
-            {...register("Name", { required: true })}
+            {...register("name", { required: true })}
           />
           <input
             type="email"

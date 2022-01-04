@@ -17,7 +17,6 @@ const Login = () => {
   const onSubmit = (data) => {
     reset();
     const { email, password } = data;
-    console.log(email, password);
     signWithEmailPass(email, password, navigate);
   };
 
@@ -37,7 +36,7 @@ const Login = () => {
         className={classes._google_btn}
         onClick={() => GoogleSingIn(navigate)}
       >
-        <i class="fab fa-google"></i>
+        <i className="fab fa-google"></i>
         Login with google
       </button>
       <Divider className={classes.form_divider} />

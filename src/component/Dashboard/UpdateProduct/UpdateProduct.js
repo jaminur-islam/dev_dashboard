@@ -7,17 +7,17 @@ const UpdateProduct = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const { id } = useParams();
-  console.log(id);
   useEffect(() => {
-    axios.get(`http://localhost:5000/products2/${id}`).then((result) => {
-      setProduct(result.data);
-      reset({ name, price, description, availability });
-    });
+    axios
+      .get(`https://aqueous-falls-80276.herokuapp.com/products2/${id}`)
+      .then((result) => {
+        setProduct(result.data);
+        reset({ name, price, description, availability });
+      });
   }, []);
 
   // generate slug
   const [slug, setSlug] = useState("");
-  console.log(slug);
   const handleSlug = (e) => {
     const text = e.target.value;
     const slug = text.toLowerCase().trim().replace(/ /g, "-");
@@ -34,11 +34,13 @@ const UpdateProduct = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (updateData) => {
     const NewUpdateData = { ...updateData, slug };
-    console.log(id);
+
     axios
-      .put(`http://localhost:5000/products2/${id}`, NewUpdateData)
+      .put(
+        `https://aqueous-falls-80276.herokuapp.com/products2/${id}`,
+        NewUpdateData
+      )
       .then((result) => {
-        console.log(result.data);
         if (result.data.modifiedCount) {
           alert("updated successfully");
           navigate("/dashboard/productManage");

@@ -14,18 +14,23 @@ import { Link } from "react-router-dom";
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    axios("http://localhost:5000/products2").then((result) => {
-      setProducts(result.data);
-    });
-  }, [products]);
+    axios("https://aqueous-falls-80276.herokuapp.com/products2").then(
+      (result) => {
+        setProducts(result.data);
+      }
+    );
+  }, []);
 
   // handle delete
   const handleDelete = (id) => {
     const confirm = window.confirm("are you sure ?");
     if (confirm) {
-      axios.delete(`http://localhost:5000/products2/${id}`).then((result) => {
-        console.log(result.data);
-      });
+      axios
+        .delete(`https://aqueous-falls-80276.herokuapp.com/products2/${id}`)
+        .then((result) => {
+          const newProducts = products.filter((product) => product._id !== id);
+          setProducts(newProducts);
+        });
     }
   };
   return (
@@ -50,9 +55,7 @@ const ManageProducts = () => {
                   <Typography gutterBottom variant="h5" component="div">
                     Price: $ {product.price}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {product.description}
-                  </Typography>
+                  <Typography variant="body2">{product.description}</Typography>
                 </CardContent>
                 <CardActions
                   style={{ display: "flex", justifyContent: "space-between" }}
