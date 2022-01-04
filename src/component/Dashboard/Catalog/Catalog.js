@@ -13,7 +13,9 @@ const Catalog = () => {
     <div style={{ marginTop: "50px" }}>
       <div>
         {data.map((dat) => {
-          return <h1 key={dat._id}> {dat.description} </h1>;
+          return (
+            <h1 key={dat._id}> sago dkj fdkj kfdjfd {dat.description} </h1>
+          );
         })}
       </div>
     </div>
