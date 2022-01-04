@@ -14,11 +14,15 @@ import { Link } from "react-router-dom";
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    let isMounted = true;
     axios("https://aqueous-falls-80276.herokuapp.com/products2").then(
       (result) => {
         setProducts(result.data);
       }
     );
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // handle delete

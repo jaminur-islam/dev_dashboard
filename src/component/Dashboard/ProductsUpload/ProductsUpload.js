@@ -56,6 +56,7 @@ const ProductsUpload = () => {
     });
   };
   useEffect(() => {
+    let isMounted = true;
     if (img) {
       delete formData.imgFile;
       delete formData.InputSlug;
@@ -75,6 +76,9 @@ const ProductsUpload = () => {
           }
         });
     }
+    return () => {
+      isMounted = false;
+    };
   }, [img]);
 
   return (
