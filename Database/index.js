@@ -43,8 +43,12 @@ const run = async () => {
     const database = client.db("devWear");
     const uploadProductCollection = database.collection("upload_products");
     const productCollection = database.collection("products2");
+<<<<<<< HEAD
     const adminCollection = database.collection("allAdmin");
     const cartCollection = database.collection("cart");
+=======
+    const cartCollection = database.collection("cart"); // cart collection created by Alif
+>>>>>>> ba3deb401546f10bc5396261b0195a88923fa528
 
     // =================Demo part ===================//
     // get all products2
@@ -99,6 +103,7 @@ const run = async () => {
       res.send(result);
     });
 
+<<<<<<< HEAD
     // get all products API
     app.get("/products", async (req, res) => {
       const result = await uploadProductCollection.find({}).toArray();
@@ -106,17 +111,28 @@ const run = async () => {
     });
 
     // get all products from cart API
+=======
+    /* -------------------------------------------------------------------------- */
+    /*                                    CART                                    */
+    /* -------------------------------------------------------------------------- */
+    // get all products from cart
+>>>>>>> ba3deb401546f10bc5396261b0195a88923fa528
     app.get("/cart", async (req, res) => {
       const result = await cartCollection.find({}).toArray();
       res.send(result);
     });
 
+<<<<<<< HEAD
     //post a product to cart API
+=======
+    //post a product to cart
+>>>>>>> ba3deb401546f10bc5396261b0195a88923fa528
     app.post("/postProductToCart", async (req, res) => {
       const product = req.body;
       const result = await cartCollection.insertOne(product);
       res.send(result);
     });
+<<<<<<< HEAD
     // get all products from cart API
     app.get("/cart", async (req, res) => {
       const result = await cartCollection.find({}).toArray();
@@ -124,10 +140,13 @@ const run = async () => {
     });
 
     //delete a product from cart API
+=======
+>>>>>>> ba3deb401546f10bc5396261b0195a88923fa528
 
     //delete a product from cart
     app.delete("/cart/:id", async (req, res) => {
       const id = req.params.id;
+<<<<<<< HEAD
       const filter = { _id: ObjectId(id) };
       const result = await cartCollection.deleteOne(filter);
       res.send(result);
@@ -224,6 +243,12 @@ const run = async () => {
       }
       //========================= start admin API ============================//
     });
+=======
+      const filter = { _id: id };
+      const result = await cart.deleteOne(filter);
+      res.send(result);
+    });
+>>>>>>> ba3deb401546f10bc5396261b0195a88923fa528
   } finally {
     //  await client.close()
   }
