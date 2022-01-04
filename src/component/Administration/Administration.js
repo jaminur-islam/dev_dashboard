@@ -17,7 +17,6 @@ const Administration = () => {
 
   // Get all admin request
   useEffect(() => {
-    let isMounted = true;
     axios("https://aqueous-falls-80276.herokuapp.com/adminRequest", {
       headers: {
         authorization: `Bearer ${token}`,
@@ -25,9 +24,6 @@ const Administration = () => {
     }).then((result) => {
       setAdminRequest(result.data);
     });
-    return () => {
-      isMounted = false;
-    };
   }, [updateAdmin]);
 
   // confirm message handle

@@ -127,7 +127,6 @@ const useFirebase = () => {
   // handle admin
 
   useEffect(() => {
-    let isMounted = true;
     if (token) {
       setLoading(true);
       axios(`https://aqueous-falls-80276.herokuapp.com/admin/${user.email}`, {
@@ -142,9 +141,6 @@ const useFirebase = () => {
           setLoading(false);
         });
     }
-    return () => {
-      isMounted = false;
-    };
   }, [token]);
 
   // handle logout

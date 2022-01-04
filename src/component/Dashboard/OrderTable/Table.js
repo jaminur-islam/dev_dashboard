@@ -355,16 +355,11 @@ export default function EnhancedTable() {
   };
 
   React.useEffect(() => {
-    let isMounted = true;
-
     fetch("https://animfahad32.github.io/fakeData/FakeClothingData.json")
       .then((resp) => resp.json())
       .then((resp) => {
         setTableData(resp);
       });
-    return () => {
-      isMounted = false;
-    };
   }, []);
 
   const [order, setOrder] = React.useState("asc");
