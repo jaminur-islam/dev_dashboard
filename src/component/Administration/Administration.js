@@ -37,11 +37,15 @@ const Administration = () => {
     if (confirm) {
       const adminEmail = { email };
       axios
-        .put("http://localhost:5000/adminRequest", adminEmail, {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        })
+        .put(
+          "https://aqueous-falls-80276.herokuapp.com/adminRequest",
+          adminEmail,
+          {
+            headers: {
+              authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((result) => {
           setUpdateAdmin(!updateAdmin);
         });
