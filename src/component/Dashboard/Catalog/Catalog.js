@@ -14,8 +14,8 @@ const Catalog = () => {
       <div>
         {data.map((dat) => {
           return (
-            <div>
-              <h1 key={dat._id}> {dat.description} </h1>
+            <div key={dat._id}>
+              <h1> {dat.description} </h1>
               <p>lorem ipsum dollar set amen</p>
             </div>
           );

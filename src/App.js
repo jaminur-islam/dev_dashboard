@@ -12,6 +12,7 @@ import ManageProducts from "./component/Dashboard/ManageProducts/ManageProducts"
 import UpdateProduct from "./component/Dashboard/UpdateProduct/UpdateProduct";
 import Administration from "./component/Administration/Administration";
 import AdminRoute from "./component/AdminRoute/AdminRoute";
+import OrderDetails from "./component/Dashboard/OrderDetails/OrderDetails";
 
 function App() {
   return (
@@ -48,6 +49,10 @@ function App() {
               element={<UpdateProduct />}
             />
             <Route path="/dashboard/upload" element={<ProductsUpload />} />
+            <Route
+              path="/dashboard/orderDetails/:id"
+              element={<OrderDetails />}
+            />
             <Route
               path="/dashboard/administration"
               element={<Administration />}
